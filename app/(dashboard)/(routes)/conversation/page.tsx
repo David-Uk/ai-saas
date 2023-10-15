@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form"
 import { formSchema } from './constants';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { Button } from "@/components/ui/button";
 
 const ConversationPage = () => {
     const form = useForm<z.infer<typeof formSchema>>({
@@ -51,11 +52,16 @@ const ConversationPage = () => {
                                                 {...field} />
                                         </FormControl>
                                     </FormItem>
+
                                 )} />
+                            <Button className='col-span-12 md:col-spam-2 w-full' disabled={isLoading}>
+                                Generate
+                            </Button>
                         </form>
                     </Form>
                 </div>
             </div>
+            <div className='space-y-4 mt-4'>Messages Content</div>
         </div>
     )
 }
